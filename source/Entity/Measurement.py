@@ -3,8 +3,9 @@ from Dataset import Dataset
 from typing import List
 
 class Measurement:
-    def __init__(self, measurementUuid: str, timestamp: datetime):
+    def __init__(self, measurementUuid: str, sensorId: str, timestamp: datetime):
         self.measurementUuid = measurementUuid
+        self.sensorId = sensorId
         self.timestamp = datetime
         self.datasets = [Dataset]
 
@@ -13,6 +14,12 @@ class Measurement:
     
     def getMeasurementUuid(self) -> str:
         return self.measurementUuid
+
+    def setSensorId(self, sensorId: str):
+        self.sensorId = sensorId
+    
+    def getSensorId(self) -> str:
+        return self.sensorId
 
     def setTimestamp(self, timestamp: str):
         self.timestamp = timestamp

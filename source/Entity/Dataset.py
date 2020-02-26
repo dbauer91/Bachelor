@@ -2,16 +2,16 @@ import datetime
 from typing import List
 
 class Dataset:
-    def __init__(self, sensorUuid: str, timestamp: datetime, values: [str]):
-        self.sensorUuid = sensorUuid
+    def __init__(self, measurementId: str, timestamp: datetime, values: [str]):
+        self.measurementId = measurementId
         self.timestamp = datetime
         self.values = values
 
-    def setSensorUuid(self, sensorUuid: str):
-        self.sensorUuid = sensorUuid
+    def setMeasurementId(self, measurementId: str):
+        self.measurementId = measurementId
 
-    def getSensorUuid(self) -> str:
-        return self.sensorUuid
+    def getMeasurementId(self) -> str:
+        return self.measurementId
 
     def setTimestmap(self, timestamp: datetime):
         self.timestamp = timestamp
