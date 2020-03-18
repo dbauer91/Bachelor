@@ -1,6 +1,5 @@
-CREATE TABLE [IF NOT EXISTS] connections (
+CREATE TABLE IF NOT EXISTS connection(
     sensorid INTEGER PRIMARY KEY,
-    connectiontype TEXT NOT NULL,
-    connectionname TEXT NOT NULL,
-    address TEXT NOT NULL,
-)
+    sensorname TEXT NOT NULL,
+    address TEXT NOT NULL
+);
