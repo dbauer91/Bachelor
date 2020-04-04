@@ -34,7 +34,7 @@ def main():
         for client in clients:
             buttons.append(Button(selectionFrame, text = client.getIdentifier(), command=buttonCallback(client.getIdentifier())));
     
-    except BluetoothError:
+    except:
         print("Bluetooth Error!") 
 
 if __name__ == "__main__":
