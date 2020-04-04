@@ -1,8 +1,18 @@
-from Entity import *
-from Service import *
+from .Entity import *
+from .Service import *
 from tkinter import *
 
+def buttonCallback(clientIdentifier: int):
+    if (bluetoothService.connect(client.getIdentifier()) == True):
+        clientButton.setvar("bg", "#00FF00")
+        statusLabel.setvar("text", "Verbindung erfolgreich hergestellt")
+    else:
+        clientButton.setvar("bg", "#FF0000")
+        statusLabel.setvar("text", "Verbindung konnte nicht hergestellt werden, weitere Informationen sind im Log zu finden")
+
 def main():
+    buttons = []
+
     bluetoothService = BluetoothService()
     databaseService = DatabaseService()
     
@@ -18,21 +28,16 @@ def main():
     statusLabel.grid(row=0, column=0, padx=2, pady=2)
     
     try: 
-        bluetoothService.setup()
+        bluetoothService.scan()
     
         clients = bluetoothService.getAvailableClients()
     
         for client in clients:
-            clientButton = Button(selectionFrame, text=client.getIdentifier(), command=lambda:
-                clientButton.setvar("bg", "#FFFF00")
-                if bluetoothService.connect(client.getIdentifier()) == True:
-                    clientButton.setvar("bg", "#00FF00")
-                    statusLabel.setvar("text", "Verbindung erfolgreich hergestellt")
-                else:
-                    clientButton.setvar("bg", "#FF0000")
-                    statusLabel.setvar("text", "Verbindung konnte nicht hergestellt werden, weitere Informationen sind im Log zu finden")    
-            )
+            buttons.append(Button(selectionFrame, text = client.getIdentifier(), command=buttonCallback(client.getIdentifier())));
     
-    except BluetoothError:    
+    except BluetoothError:
+        print("Bluetooth Error!") 
 
-main()
+if __name__ == "__main__":
+    # execute only if run as a script
+    main()

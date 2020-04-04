@@ -4,8 +4,8 @@
 #include <ArduinoOTA.h>
 
 // Replace with your network credentials
-const char* ssid = "YOUR_SSID";
-const char* password = "YOUR_PASSWORD";
+const char* ssid = "MAMA HIER KLICKEN";
+const char* password = "ravioliravioligivemetheformuoli1";
 
 void setup() {
   Serial.begin(115200);
