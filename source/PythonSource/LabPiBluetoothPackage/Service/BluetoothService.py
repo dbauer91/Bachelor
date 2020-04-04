@@ -5,4 +5,3 @@ class BluetoothService:
         devices = bluetooth.discover_devices(lookup_names=True)
         print(devices)
         return devices
-
